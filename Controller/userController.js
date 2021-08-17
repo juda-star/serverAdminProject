@@ -1,7 +1,4 @@
 const userModel = require("../Model/userModel");
-
-
-
 /////////////////getAll////////////////////////////////
 async function getAllUser(req, res) {
   try {
@@ -13,7 +10,6 @@ async function getAllUser(req, res) {
     res.json({ massage: "database problem", error: err });
   }
 }
-
 /////////////////////////////add////////////////////////////////
 async function createNewUser(req, res) {
   const { errors, isValid } = userValidate(req.body.user);
@@ -32,7 +28,6 @@ async function createNewUser(req, res) {
     res.json({ massage: "database problem", error: err });
   }
 }
-
 module.exports = {
     getAllUser,
   createNewUser,
