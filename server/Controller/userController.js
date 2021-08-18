@@ -12,7 +12,7 @@ async function adminGetAllUser(req, res) {
     res.json({ massage: "database problem", error: err });
   }
 }
-/////////////////////////////get by id ///////////////////////////
+/////////////////////////////get by id massage? ///////////////////////////
 async function adminGetStudentById(req, res) {
   try {
     await userModel.findById(
@@ -28,10 +28,6 @@ async function adminGetStudentById(req, res) {
 }
 /////////////////////////////add////////////////////////////////
 async function adminCreateNewUser(req, res) {
-  const { errors, isValid } = userValidate(req.body.user);
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
   try {
     await userModel.insertMany(req.body.user, (error, result) => {
       if (error) throw error;
@@ -61,7 +57,7 @@ async function adminDeleteStudent(req, res) {
   }
 }
 ////////////////////update///////////////////////////////
-async function adnimUpdateStudent(req, res) {
+async function adminUpdateStudent(req, res) {
   try {
     studentModel.findByIdAndUpdate(
       { _id: ObjectId(req.params._id) },
@@ -80,5 +76,5 @@ module.exports = {
   adminCreateNewUser,
   adminGetStudentById,
   adminDeleteStudent,
-  adnimUpdateStudent,
+  adminUpdateStudent,
 };
