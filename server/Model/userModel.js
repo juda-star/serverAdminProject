@@ -2,21 +2,17 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 ////////////////no reqired////////////////
-const userSchema = new Schema({
-  firstName: {
+const eventAdminSchema = new Schema({
+  eventName: {
     type: String,
     require: true,
   },
-  lastName: {
-    type: String,
-    require: true,
-  },
-  birthday: {
+  Date: {
     type: Date,
-  },
-  Email: {
-    type: String,
     require: true,
+  },
+  massage: {
+    type: String,
   }
 });
-module.exports = mongoose.model("user", userSchema);
+module.exports = mongoose.model("eventAdmin", eventAdminSchema);
