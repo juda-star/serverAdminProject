@@ -7,11 +7,11 @@ app.use(cors())
 app.use(express.json())
 
 app.get('/home',(req,res)=>{
-res.json('Home Page');
+res.send('Home Page');
 });
 
 app.get('/course/grades',authPage(['teacher','admin']),(req,res)=>{
-    res.json({
+    res.send({
         yehooda:60,
         kasia:70,
         hen:80,
@@ -21,7 +21,7 @@ app.get('/course/grades',authPage(['teacher','admin']),(req,res)=>{
 
 app.get('course/:number',authCourse,(req,res)=>{
     const courseNumber=req.params.number;
-    res.json(`you have prmission to see course ${courseNumber}`)
+    res.send(`you have prmission to see course ${courseNumber}`)
 });
 
 
