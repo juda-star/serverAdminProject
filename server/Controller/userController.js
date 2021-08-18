@@ -10,6 +10,20 @@ async function getAllUser(req, res) {
     res.json({ massage: "database problem", error: err });
   }
 }
+/////////////////////////////get by id ///////////////////////////
+async function getStudentById(req, res) {
+  try {
+    await studentModel.findById(
+      { _id: ObjectId(req.params._id) },
+      (error, result) => {
+        if (error) throw error;
+        res.json({ massage: "succses", data: result });
+      }
+    );
+  } catch (error) {
+    res.json({ massage: "DataBase Problem", error: error });
+  }
+}
 /////////////////////////////add////////////////////////////////
 async function createNewUser(req, res) {
   const { errors, isValid } = userValidate(req.body.user);
@@ -31,4 +45,6 @@ async function createNewUser(req, res) {
 module.exports = {
     getAllUser,
   createNewUser,
+  getStudentById
+  
 };

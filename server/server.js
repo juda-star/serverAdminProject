@@ -1,7 +1,7 @@
 const express = require('express')
 const cors =require('cors')
 const app = express();
-const {authPage,authCourse} = require('./Controller/userMiddlewares')
+const {authPage} = require('./Controller/userMiddlewares')
 app.use(cors())
 
 app.use(express.json())
@@ -19,7 +19,7 @@ app.get('/course/grades',authPage(['teacher','admin']),(req,res)=>{
     });
 });
 
-app.get('course/:number',authCourse,(req,res)=>{
+app.get('course/:number',(req,res)=>{
     const courseNumber=req.params.number;
     res.send(`you have prmission to see course ${courseNumber}`)
 });

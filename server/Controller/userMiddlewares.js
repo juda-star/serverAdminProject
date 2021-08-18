@@ -8,12 +8,12 @@ const authPage = (premissions) => {
     }
   };
 };
-const authCourse = (req, res, next) => {
-  const courseNumber = parseInt(req.params.number);
-  if (req.body.courses.includes(courseNumber)) {
-    next();
-  } else {
-    return res.status(401).json("you dont have access to this course!");
-  }
-};
-module.exports = { authPage, authCourse };
+// const authCourse = (req, res, next) => {
+//   const courseNumber = parseInt(req.params.number);
+//   if (req.body.courses.includes(courseNumber)) {
+//     next();
+//   } else {
+//     return res.status(401).json("you dont have access to this course!");
+//   }
+// };
+module.exports = { authPage };
