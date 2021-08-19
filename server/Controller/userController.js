@@ -1,22 +1,23 @@
 const userModel = require("../Model/userModel");
 const { ObjectId } = require("mongodb");
 
-/////////////////getAll////////////////////////////////
-async function adminGetAllUser(req, res) {
+async function getAllEventPost(req, res) {
   try {
     await userModel.find({}, (error, result) => {
       if (error) throw error;
-      res.json({ massage: "success", data: result });
+      res
+        .status(200)
+        .res.json({ massage: "Get Event Post success", data: result });
     });
   } catch (err) {
-    res.json({ massage: "database problem", error: err });
+    res.status(500).res.json({ massage: "Get Event Post field", error: err });
   }
 }
-/////////////////////////////get by id massage? ///////////////////////////
-async function adminGetStudentById(req, res) {
+
+async function getEventById(req, res) {
   try {
     await userModel.findById(
-      { _id: ObjectId(req.params._id) },
+      { _id: ObjectId(req.body._id) },
       (error, result) => {
         if (error) throw error;
         res.json({ massage: "succses", data: result });
@@ -26,55 +27,57 @@ async function adminGetStudentById(req, res) {
     res.json({ massage: "DataBase Problem", error: error });
   }
 }
-/////////////////////////////add////////////////////////////////
-async function adminCreateNewUser(req, res) {
+
+async function PostnewEvent(req, res) {
   try {
-    await userModel.insertMany(req.body.user, (error, result) => {
+    await userModel.insertMany(req.body, (error, result) => {
       if (error) throw error;
-      res.json({
-        massage: "success, added successfully",
-        data: req.body.users,
+      res.status(200).json({
+        massage: "Post Added successfully, success",
+        data: result,
       });
     });
   } catch (err) {
-    res.json({ massage: "database problem", error: err });
+    res.status(500).res.json({ massage: "Post Added Field ", error: err });
   }
 }
 
-///////////////////////delete//////////////////////////////
-
-async function adminDeleteStudent(req, res) {
+async function deleteEventPost(req, res) {
   try {
     await studentModel.findOneAndDelete(
-      { _id: ObjectId(req.params._id) },
+      { _id: ObjectId(req.body._id) },
       (error, result) => {
         if (error) throw error;
-        res.json({ massage: "Success", data: result });
+        res
+          .status(200)
+          .res.json({ massage: "Deleted Event Success", data: result });
       }
     );
   } catch (error) {
-    res.json({ massage: "DataBase Problem", error: error });
+    res.status(500).res.json({ massage: "Deleted Event field", error: error });
   }
 }
-////////////////////update///////////////////////////////
-async function adminUpdateStudent(req, res) {
+
+async function updateEventPost(req, res) {
   try {
     studentModel.findByIdAndUpdate(
-      { _id: ObjectId(req.params._id) },
+      { _id: ObjectId(req.body._id) },
       { $set: req.body.student },
       (error, result) => {
         if (error) throw error;
-        res.json({ massage: "Success", data: result });
+        res
+          .status(200)
+          .res.json({ massage: "Update Event Success", data: result });
       }
     );
   } catch (error) {
-    res.json({ massage: "DataBase Problem", error: error });
+    res.status(500).res.json({ massage: "Update Event field", error: error });
   }
 }
 module.exports = {
-  adminGetAllUser,
-  adminCreateNewUser,
-  adminGetStudentById,
-  adminDeleteStudent,
-  adminUpdateStudent,
+  getAllEventPost,
+  getEventById,
+  PostnewEvent,
+  deleteEventPost,
+  updateEventPost,
 };

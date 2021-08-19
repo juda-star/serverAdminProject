@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
-////////////////no reqired////////////////
+
 const eventSchema = new Schema(
   {
     eventName: {
@@ -13,8 +12,10 @@ const eventSchema = new Schema(
       type: String,
       required: true,
     },
+    creatorEvent: [{ type: Schema.Types.ObjectId, ref: "staff" }],
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("eventAdmin", eventSchema);
+const Event = mongoose.model("event", eventSchema);
+module.exports = Event;
