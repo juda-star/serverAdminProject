@@ -3,6 +3,13 @@ const cors =require('cors')
 const app = express();
 const userRouter = require('./Router/userRouter')
 // const {authPage} = require('./Controller/userMiddlewares')
+const db = require("./DB/index");
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+db.on("error", () => {
+    console.log("connection error");
+  });
 app.use(cors())
 
 app.use(express.json())
@@ -11,7 +18,7 @@ app.use(express.json())
 // res.send('Home Page');
 // });
 
-app.get('/admin',userRouter,(req,res)=>{
+app.get('/api/admin',userRouter,(req,res)=>{
 res.send('Home Page');
 });
 
