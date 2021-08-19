@@ -1,13 +1,13 @@
-const userModel = require("../Model/userModel");
+const eventModel = require("../Model/userModel");
 const { ObjectId } = require("mongodb");
 
 async function getAllEventPost(req, res) {
   try {
-    await userModel.find({}, (error, result) => {
+    await eventModel.find({}, (error, result) => {
       if (error) throw error;
       res
         .status(200)
-        .res.json({ massage: "Get Event Post success", data: result });
+        .json({ massage: "Get Event Post success", data: result });
     });
   } catch (err) {
     res.status(500).res.json({ massage: "Get Event Post field", error: err });
@@ -16,21 +16,21 @@ async function getAllEventPost(req, res) {
 
 async function getEventById(req, res) {
   try {
-    await userModel.findById(
+    await eventModel.findById(
       { _id: ObjectId(req.body._id) },
       (error, result) => {
         if (error) throw error;
-        res.json({ massage: "succses", data: result });
+        res.status(200).res.json({ massage: "get event by id succses", data: result });
       }
     );
   } catch (error) {
-    res.json({ massage: "DataBase Problem", error: error });
+    res.status(500).res.json({ massage: "get event by id field  ", error: error });
   }
 }
 
 async function PostnewEvent(req, res) {
   try {
-    await userModel.insertMany(req.body, (error, result) => {
+    await eventModel.insertMany(req.body, (error, result) => {
       if (error) throw error;
       res.status(200).json({
         massage: "Post Added successfully, success",
