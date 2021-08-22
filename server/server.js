@@ -12,7 +12,7 @@ db.on("error", () => {
 });
 app.use(cors());
 
-app.use(express.json());
+
 
 // app.get('/home',(req,res)=>{
 // res.send('Home Page');
