@@ -81,3 +81,9 @@ module.exports = {
   deleteEventPost,
   updateEventPost,
 };
+
+// userRouter.get("/", userController.getAllEventPost);
+// userRouter.get("/:_id", userController.getEventById);
+// userRouter.post("/", userController.PostnewEvent);
+// userRouter.delete("/:_id", userController.deleteEventPost);
+// userRouter.put("/:_id", userController.updateEventPost);
