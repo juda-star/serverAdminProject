@@ -87,3 +87,9 @@ async function getAllEventPost(req, res) {
     },
     body:JSON.stringify({})
   }.then(res=>{return res.json()}).then(data=>console.log(data)).catch(error=>console.log('error'))
+
+  // useEffect(() => {
+  //   fetch("http://localhost:8080/api/student")
+  //     .then((response) => response.json())
+  //     .then((response) => setStudents(response.data));
+  // }, []);
