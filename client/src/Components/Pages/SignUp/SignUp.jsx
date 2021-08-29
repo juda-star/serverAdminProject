@@ -5,9 +5,9 @@ export default function SignUp() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  console.log(fullName);
-  console.log(email);
-  console.log(password);
+  // console.log(fullName);
+  // console.log(email);
+  // console.log(password);
   async function send() {
     await login(fullName, email, password);
   }
