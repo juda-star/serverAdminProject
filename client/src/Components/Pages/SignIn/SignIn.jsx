@@ -12,12 +12,12 @@ export default function SignIn() {
         <label for="firstname" class="placeholder">First name</label> */}
       </div>
       <div class="input-container ic2">
-        <input id="password" class="input" type="text" placeholder=" " />
+        <input id="password" name="password" class="input" type="text" placeholder=" " />
         <div class="cut"></div>
         <label for="password" class="placeholder">password</label>
       </div>
       <div class="input-container ic2">
-        <input id="email" class="input" type="text" placeholder=" " />
+        <input id="email" name="email" class="input" type="text" placeholder=" " />
         <div class="cut cut-short"></div>
         <label for="email" class="placeholder">Email</label>
       </div>

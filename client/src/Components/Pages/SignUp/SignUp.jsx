@@ -1,28 +1,73 @@
-import React from "react";
-import "./SignUp.css"
+import React, { useState } from "react";
+import "./SignUp.css";
+import { login } from "../../Controllers/userController";
 export default function SignUp() {
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  console.log(fullName);
+  console.log(email);
+  console.log(password);
+  async function send() {
+    await login(fullName, email, password);
+  }
   return (
     <div className="formBody">
-    <div class="form">
-<div class="title">Welcome</div>
-<div class="subtitle">Let's create your account!</div>
-<div class="input-container ic1">
-  <input id="firstname" class="input" type="text" placeholder=" " />
-  <div class="cut"></div>
-  <label for="firstname" class="placeholder">First name</label>
-</div>
-<div class="input-container ic2">
-  <input id="password" class="input" type="text" placeholder=" " />
-  <div class="cut"></div>
-  <label for="password" class="placeholder">password</label>
-</div>
-<div class="input-container ic2">
-  <input id="email" class="input" type="text" placeholder=" " />
-  <div class="cut cut-short"></div>
-  <label for="email" class="placeholder">Email</label>
-</div>
-<button type="text" class="submit">submit</button>
-</div>
-</div>
+      <div className="form">
+        <div className="title">Welcome</div>
+        <div className="subtitle">Let's create your account!</div>
+        <div className="input-container ic1">
+          <input
+            onChange={(e) => {
+              return setFullName(e.target.value);
+            }}
+            id="firstname"
+            name="fullName"
+            className="input"
+            type="text"
+            placeholder=" "
+          />
+          <div className="cut"></div>
+          <label htmlFor="firstname" className="placeholder">
+            Full name
+          </label>
+        </div>
+        <div className="input-container ic2">
+          <input
+            onChange={(e) => {
+              return setEmail(e.target.value);
+            }}
+            id="email"
+            name="email"
+            className="input"
+            type="text"
+            placeholder=" "
+          />
+          <div className="cut cut-short"></div>
+          <label htmlFor="email" className="placeholder">
+            Email
+          </label>
+        </div>
+        <div className="input-container ic2">
+          <input
+            onChange={(e) => {
+              return setPassword(e.target.value);
+            }}
+            id="password"
+            name="password"
+            className="input"
+            type="text"
+            placeholder=" "
+          />
+          <div className="cut"></div>
+          <label htmlFor="password" className="placeholder">
+            password
+          </label>
+        </div>
+        <button type="text" className="submit" onClick={send}>
+          submit
+        </button>
+      </div>
+    </div>
   );
 }

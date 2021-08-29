@@ -3,16 +3,20 @@ const Schema = mongoose.Schema;
 
 const eventSchema = new Schema(
   {
-    eventName: {
+    fullName: {
+      type: String,
+      required: true,
+    },
+    email: {
       type: String,
       required: true,
     },
 
-    massage: {
+    password: {
       type: String,
       required: true,
     },
-    creatorEvent: [{ type: Schema.Types.ObjectId, ref: "staff" }],
+    
   },
   { timestamps: true }
 );
