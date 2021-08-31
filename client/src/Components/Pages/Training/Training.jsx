@@ -16,7 +16,7 @@ export default function Training() {
           />
           <div class="container">
             <h4>
-              <b>Vinyl Hand Weights</b>
+              <b>A</b>
             </h4>
            
           </div>
@@ -30,7 +30,7 @@ export default function Training() {
           />
           <div class="container">
             <h4>
-              <b>Technogym's Dumbbells</b>
+              <b>AB</b>
             </h4>
            
           </div>
@@ -44,7 +44,7 @@ export default function Training() {
           />
           <div class="container">
             <h4>
-              <b>Dumbbells Set</b>
+              <b>ABC</b>
             </h4>
           
           </div>
