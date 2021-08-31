@@ -13,7 +13,7 @@ db.on("error", () => {
 });
 app.use(cors());
 
-app.use("/users", userRouter);
+app.use("/", userRouter);
 
 app.listen(8080, () => {
   console.log("server is live on port 8080");
