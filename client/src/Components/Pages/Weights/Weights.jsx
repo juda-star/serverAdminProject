@@ -107,7 +107,7 @@ export default function Weights() {
 
     <div class="card">
         <img
-          src="https://evolutionfitnessequipment.com.au/wp-content/uploads/2020/05/Power-cage-packages.jpg"
+          src="https://www.beingstrong.in/images/products/plate-loaded/multipurpose/being-strong-power-cage.jpg"
           alt="Avatar"
           style={{ height: "70%",width:"100%" }}
         />
